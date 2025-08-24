@@ -35,3 +35,17 @@ class Hospital:
             return
         self.patients[pid]=Patient(pid,name,age,ill)
         print("Added the pateint.")
+
+    def book(self,pid,did):
+        if pid not in self.patients or did not in self.doctors:
+            print("Not found")
+            return
+        a=Appointment(self.patients[pid],self.doctors[did])
+        self.appointments.append(a)
+        print("Booked.")
+    def view_apps(self):
+        if not self.appointments:
+            print("none")
+            return
+        for a in self.appointments:
+            print(a)
