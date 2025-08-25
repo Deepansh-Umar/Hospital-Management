@@ -35,7 +35,12 @@ class Hospital:
             return
         self.patients[pid]=Patient(pid,name,age,ill)
         print("Added the pateint.")
-
+    def add_doctor(self,did,name,spec):
+        if did in self.doctors:
+            print("ID exists")
+            return
+        self.doctors[did]=Doctor(did,name,spec)
+        print("Added the doctor.")
     def book(self,pid,did):
         if pid not in self.patients or did not in self.doctors:
             print("Not found")
